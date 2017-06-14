@@ -4,11 +4,25 @@
 
 class Game {
 public:
-    bool isRunning() const;
-    void setRunning(bool running);
-    std::string getUserInput();
+    static bool isExiting() const;
+
+    static void Start();
 private:
-    bool running = true;
+    bool exit = false;
+
+    static void GameLoop();
+
+private:
+    enum GameState {
+        Exiting,
+        Paused,
+        Playing,
+        ShowingMenu,
+        ShowingSplash,
+        ShowingWin,
+        Uninitialized
+    };
+    static GameState gameState;
 };
 
 #endif

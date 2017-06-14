@@ -1,8 +1,19 @@
 #include "Game.h"
-bool Game::isRunning() const {
-    return running;
+
+Game::GameState Game::gameState = Uninitialized;
+
+void GameLoop();
+
+bool Game::isExiting() const {
+    return gameState == GameState::Exiting;
 }
 
-void Game::setRunning(bool running) {
-    Game::running = running;
+void Game::Start() {
+    while (!isExiting())
+        GameLoop();
 }
+
+void Game::GameLoop() {
+
+}
+
