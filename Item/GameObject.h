@@ -9,7 +9,6 @@
 class GameObject {
 public:
     bool isDestroyable() const;
-
     void setDestroyable(bool destroyable);
 
 private:

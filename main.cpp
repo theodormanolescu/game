@@ -1,7 +1,7 @@
 #include "Game.h"
 
 int main() {
-    Game::Start();
+    Game::start();
 
     return 0;
 }

@@ -3,26 +3,19 @@
 #include <iostream>
 
 class Game {
-public:
-    static bool isExiting() const;
-
-    static void Start();
 private:
-    bool exit = false;
-
-    static void GameLoop();
-
-private:
-    enum GameState {
-        Exiting,
-        Paused,
-        Playing,
-        ShowingMenu,
-        ShowingSplash,
-        ShowingWin,
-        Uninitialized
+    enum States {
+        initialized,
+        notExiting,
+        terminate
     };
-    static GameState gameState;
+    static States currentState;
+public:
+    static void start();
+
+    static void loop();
+
+    static bool terminating();
 };
 
 #endif

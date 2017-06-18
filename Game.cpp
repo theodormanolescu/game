@@ -1,19 +1,28 @@
 #include "Game.h"
 
-Game::GameState Game::gameState = Uninitialized;
+Game::States Game::currentState = States::initialized;
 
-void GameLoop();
-
-bool Game::isExiting() const {
-    return gameState == GameState::Exiting;
+bool Game::terminating() {
+    return Game::currentState == States::terminate;
 }
 
-void Game::Start() {
-    while (!isExiting())
-        GameLoop();
+void Game::start() {
+    while (!Game::terminating())
+        Game::loop();
 }
 
-void Game::GameLoop() {
-
+void Game::loop() {
+    switch (Game::currentState) {
+        case initialized:
+            std::cout << "Initialized" << std::endl;
+            Game::currentState = States::terminate;
+            break;
+        case notExiting:
+            break;
+        case terminate:
+            break;
+    }
 }
+
+
 
