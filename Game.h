@@ -1,21 +1,21 @@
 #ifndef UNTITLED_GAME_H
 #define UNTITLED_GAME_H
 #include <iostream>
+#include <map>
 
 class Game {
 private:
     enum States {
         initialized,
-        notExiting,
+        menuScreen,
         terminate
     };
-    static States currentState;
+    std::map<int, std::string> MenuItems;
+    States currentState;
 public:
-    static void start();
-
-    static void loop();
-
-    static bool terminating();
+    void start();
+    void loop();
+    bool terminating();
 };
 
 #endif

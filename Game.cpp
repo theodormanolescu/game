@@ -1,10 +1,5 @@
 #include "Game.h"
 
-Game::States Game::currentState = States::initialized;
-
-bool Game::terminating() {
-    return Game::currentState == States::terminate;
-}
 
 void Game::start() {
     while (!Game::terminating())
@@ -14,15 +9,11 @@ void Game::start() {
 void Game::loop() {
     switch (Game::currentState) {
         case initialized:
-            std::cout << "Initialized" << std::endl;
-            Game::currentState = States::terminate;
+            std::cout << "Welcome to the game!" << std::endl;
             break;
-        case notExiting:
+        case menuScreen:
             break;
         case terminate:
             break;
     }
 }
-
-
-

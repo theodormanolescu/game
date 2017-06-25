@@ -1,7 +1,8 @@
 #include "Game.h"
 
 int main() {
-    Game::start();
+    Game *game = new Game();
+    game->start();
 
     return 0;
 }
