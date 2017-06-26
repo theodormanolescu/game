@@ -20,7 +20,7 @@ void Game::loop() {
         case menuScreen:
             this->showMainMenu();
             break;
-        case terminate:
+        default:
             break;
     }
 }

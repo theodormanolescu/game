@@ -20,7 +20,6 @@ public:
     void start();
     void loop();
     bool terminating();
-
     void showMainMenu();
 };
 
