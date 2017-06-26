@@ -5,6 +5,7 @@ static const int quitGame = 2;
 
 #include <iostream>
 #include <map>
+#include "../Character/Character.h"
 
 class Game {
 private:
@@ -13,14 +14,18 @@ private:
         menuScreen,
         terminate
     };
+
     States currentState;
     std::map<int, std::string> MenuItems;
+
 public:
     Game();
     void start();
     void loop();
     bool terminating();
     void showMainMenu();
+
+    Character *createPlayerCharacter(const std::string &playerName) const;
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "../Character/Player.h"
 
 Game::Game() {
     this->currentState = States::initialized;
@@ -39,4 +40,20 @@ void Game::showMainMenu() {
     if (choice == quitGame) {
         this->currentState = States::terminate;
     }
+    if (choice == newGame) {
+        std::string playerName;
+        std::cin >> playerName;
+        createPlayerCharacter(playerName);
+    }
+}
+
+Character *Game::createPlayerCharacter(const std::string &playerName) const {
+    Player *player = new Player();
+    player->setDestroyable(true);
+    player->setName(playerName);
+    player->setAlive(true);
+    player->setHitPoints(100);
+    player->setResourcePoints(100);
+    std::cout << "Player name " << player->getName() << std::endl;
+    return player;
 }

@@ -2,7 +2,7 @@
 #define UNTITLED_ITEM_H
 
 #include <vector>
-#include "GameObject.h"
+#include "../Game/GameObject.h"
 #include "Property.h"
 
 class Item : public GameObject
